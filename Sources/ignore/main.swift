@@ -3,9 +3,14 @@ import xcodeproj
 import PathKit
 import PackageConfig
 import Foundation
+import Logger
+
+let isVerbose = CommandLine.arguments.contains("--verbose") || (ProcessInfo.processInfo.environment["DEBUG"] != nil)
+let isSilent = CommandLine.arguments.contains("--silent")
+let logger = Logger(isVerbose: isVerbose, isSilent: isSilent)
 
 guard let skip = getPackageConfig()["ignore"] as? [String] else {
-	print("failed to get package config")
+	logger.logError("failed to get package config")
 	exit(1)
 }
 
@@ -16,18 +21,18 @@ guard let path = try? Path.current.children().filter({ path in
 
 	return last.contains("xcodeproj")
 }).first else {
-	print("failed to unwrap project path")
+	logger.logError("failed to unwrap project path")
 	exit(1)
 }
 
 guard let projectPath = path else {
-	print("failed to unwrap project path")
+	logger.logError("failed to unwrap project path")
 	exit(1)
 }
 
 
 guard let project = try? XcodeProj(path: projectPath) else {
-	print("failed to load project")
+	logger.logError("failed to load project")
 	exit(1)
 }
 
@@ -50,7 +55,7 @@ for target in ignored {
 }
 
 guard let _ = try? project.writePBXProj(path: projectPath, override: true, outputSettings: PBXOutputSettings()) else {
-	print("failed to save project")
+	logger.logError("failed to save project")
 	exit(1)
 }
 

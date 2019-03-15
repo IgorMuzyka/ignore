@@ -10,12 +10,15 @@ let package = Package(
     ],
     dependencies: [
 		.package(url: "https://github.com/orta/PackageConfig.git", from: "0.0.1"),
+		.package(url: "https://github.com/f-meloni/Logger", from: "0.1.0"),
 		.package(url: "https://github.com/tuist/xcodeproj.git", from: "6.6.0"),
 		.package(url: "https://github.com/kylef/PathKit", from: "0.9.2"),
+
+//		.package(url: "https://github.com/f-meloni/Rocket", from: "0.0.1"), // dev
     ],
     targets: [
         .target(name: "ignore", dependencies: [
-			"xcodeproj", "PathKit", "PackageConfig"
+			"Logger", "xcodeproj", "PathKit", "PackageConfig"
 		]),
         .testTarget(name: "ignoreTests", dependencies: ["ignore"]),
     ]
@@ -25,6 +28,19 @@ let package = Package(
 import PackageConfig
 
 let config = PackageConfig([
-	"ignore": []
+	"ignore": [],
+	"rocket": ["steps":
+		[
+			"hide_dev_dependencies",
+			"git_add",
+			["commit": ["message": "Releasing version $VERSION"]],
+			"tag",
+			"push",
+			"unhide_dev_dependencies",
+			"git_add",
+			["commit": ["message": "Reveresed package dev dependencies"]],
+			"push",
+		]
+	],
 ])
 #endif
