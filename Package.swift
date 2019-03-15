@@ -20,3 +20,11 @@ let package = Package(
         .testTarget(name: "ignoreTests", dependencies: ["ignore"]),
     ]
 )
+
+#if canImport(PackageConfig)
+import PackageConfig
+
+let config = PackageConfig([
+	"ignore": []
+])
+#endif
