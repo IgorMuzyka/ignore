@@ -14,7 +14,7 @@ let package = Package(
 		.package(url: "https://github.com/tuist/xcodeproj.git", from: "6.6.0"),
 		.package(url: "https://github.com/kylef/PathKit", from: "0.9.2"),
 
-//		.package(url: "https://github.com/f-meloni/Rocket", from: "0.0.1"), // dev
+		.package(url: "https://github.com/f-meloni/Rocket", from: "0.0.1"), // dev
     ],
     targets: [
         .target(name: "ignore", dependencies: [
