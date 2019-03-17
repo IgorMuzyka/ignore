@@ -21,11 +21,11 @@
       },
       {
         "package": "PackageConfig",
-        "repositoryURL": "https://github.com/orta/PackageConfig.git",
+        "repositoryURL": "https://github.com/IgorMuzyka/PackageConfig.git",
         "state": {
-          "branch": null,
-          "revision": "5aa8c836b577b3312e5bee6ff15c61cd7d649804",
-          "version": "0.0.1"
+          "branch": "master",
+          "revision": "7b49aac0881118d7589b5b71c4a78c6c8da17fdb",
+          "version": null
         }
       },
       {
@@ -35,15 +35,6 @@
           "branch": null,
           "revision": "e2f5be30e4c8f531c9c1e8765aa7b71c0a45d7a0",
           "version": "0.9.2"
-        }
-      },
-      {
-        "package": "Rocket",
-        "repositoryURL": "https://github.com/f-meloni/Rocket",
-        "state": {
-          "branch": null,
-          "revision": "7392ad88d2a3e8074a3c3bfa77f900bed29ba407",
-          "version": "0.8.1"
         }
       },
       {
@@ -71,15 +62,6 @@
           "branch": null,
           "revision": "3fe1bd763072c81050b867d34db56d11cb9085bb",
           "version": "6.6.0"
-        }
-      },
-      {
-        "package": "Yams",
-        "repositoryURL": "https://github.com/jpsim/Yams",
-        "state": {
-          "branch": null,
-          "revision": "26ab35f50ea891e8edefcc9d975db2f6b67e1d68",
-          "version": "1.0.1"
         }
       }
     ]

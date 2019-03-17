@@ -1,15 +1,15 @@
 
 import xcodeproj
 import PathKit
-import PackageConfig
 import Foundation
 import Logger
+import IgnoreConfig
 
 let isVerbose = CommandLine.arguments.contains("--verbose") || (ProcessInfo.processInfo.environment["DEBUG"] != nil)
 let isSilent = CommandLine.arguments.contains("--silent")
 let logger = Logger(isVerbose: isVerbose, isSilent: isSilent)
 
-guard let skip = getPackageConfig()["ignore"] as? [String] else {
+guard let config = IgnoreConfig.load() else {
 	logger.logError("failed to get package config")
 	exit(1)
 }
@@ -36,7 +36,7 @@ guard let project = try? XcodeProj(path: projectPath) else {
 	exit(1)
 }
 
-let ignored = project.pbxproj.nativeTargets.filter({ !skip.contains($0.name) })
+let ignored = project.pbxproj.nativeTargets.filter({ !config.excludedTargets.contains($0.name) })
 
 for target in ignored {
 	guard let configurations = target.buildConfigurationList?.buildConfigurations else {
