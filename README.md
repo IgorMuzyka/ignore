@@ -1,3 +1,3 @@
-# ignore
+# ⚠️ ignore
 
-A description of this package.
+A Swift Package that allows you to ignore you to ignore warnings.
