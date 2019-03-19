@@ -24,7 +24,9 @@ let package = Package(
 			"PathKit",
 			"IgnoreConfig",
 		]),
-		.target(name: "IgnoreConfig", dependencies: ["PackageConfig"])
+		.target(name: "IgnoreConfig", dependencies: ["PackageConfig"]),
+
+		.target(name: "PackageConfigs", dependencies: ["IgnoreConfig"]),
     ]
 )
 

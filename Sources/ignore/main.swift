@@ -9,8 +9,13 @@ let isVerbose = CommandLine.arguments.contains("--verbose") || (ProcessInfo.proc
 let isSilent = CommandLine.arguments.contains("--silent")
 let logger = Logger(isVerbose: isVerbose, isSilent: isSilent)
 
-guard let config = IgnoreConfig.load() else {
-	logger.logError("failed to get package config")
+let config: IgnoreConfig
+
+do {
+	config = try IgnoreConfig.load()
+} catch {
+	logger.logError("failed to get package config with error")
+	logger.logError(error)
 	exit(1)
 }
 
