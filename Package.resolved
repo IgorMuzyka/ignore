@@ -21,11 +21,11 @@
       },
       {
         "package": "PackageConfig",
-        "repositoryURL": "https://github.com/IgorMuzyka/PackageConfig.git",
+        "repositoryURL": "https://github.com/orta/PackageConfig.git",
         "state": {
-          "branch": "master",
-          "revision": "ad7941d2eddab91d2d6674daef4aed6124d32e3c",
-          "version": null
+          "branch": null,
+          "revision": "9c8b95d295b15dc5307503064f3ee87772bc5d17",
+          "version": "0.9.0"
         }
       },
       {
