@@ -28,7 +28,7 @@ Add dependency to dependencies in your project `Package.swift`
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/IgorMuzyka/ignore", from: "1.0.0"),
+    .package(url: "https://github.com/IgorMuzyka/ignore", from: "0.0.2"),
 ]
 ```
 
